@@ -1,11 +1,11 @@
 export const publicUrl = import.meta.env.VITE_PUBLISH_URL!;
-export const apiUrl = import.meta.env.VITE_API_URI!;
+export const apiUrl = import.meta.env.VITE_API_URI! || 'http://localhost:3000';
 export const isStaging = import.meta.env.VITE_IS_STAGING === 'true';
-export const baseUrl = import.meta.env.VITE_APP_URI || 'http://127.0.0.1:5173/';
-export const domainUrl = import.meta.env.VITE_DOMAIN || 'http://127.0.0.1:5173/';
-export const APIKEY = import.meta.env.VITE_APIKEY || '';
-
+export const baseUrl = import.meta.env.VITE_APP_URI || 'http://127.0.0.1:5173';
+export const socketUrl = import.meta.env.VITE_API_SOCKET || 'http://localhost:4000'
 export const API_FETCH_TIMEOUT = 20;
+
+export const token = 'TOKEN'
 
 export const ERROR_CODES = {
   NOT_ENOUGH_CREDIT: {
