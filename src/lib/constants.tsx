@@ -5,8 +5,6 @@ export const baseUrl = import.meta.env.VITE_APP_URI || 'http://127.0.0.1:5173';
 export const socketUrl = import.meta.env.VITE_API_SOCKET || 'http://localhost:4000'
 export const API_FETCH_TIMEOUT = 20;
 
-export const token = 'TOKEN'
-
 export const ERROR_CODES = {
   NOT_ENOUGH_CREDIT: {
     code: 'NOT_ENOUGH_CREDIT',

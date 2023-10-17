@@ -1,7 +1,11 @@
 import { socket } from "@/socket";
+import useBoundStore from "@/store";
 import { useEffect, useState } from "react";
 
 export default function Home() {
+  const fishes = useBoundStore((state) => state.fishes);
+  const addFish = useBoundStore((state) => state.addFish);
+
   const [isConnected, setIsConnected] = useState(socket.connected);
   const [fooEvents, setFooEvents] = useState<string[]>([]);
 
@@ -31,11 +35,11 @@ export default function Home() {
 
   const connect = () => {
     socket.connect();
-  }
+  };
 
   const disconnect = () => {
     socket.disconnect();
-  }
+  };
 
   const [value, setValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -47,11 +51,13 @@ export default function Home() {
     socket.timeout(5000).emit("create-something", value, () => {
       setIsLoading(false);
     });
-  }
+  };
 
   return (
     <>
       <div className="App">
+        {fishes}
+        <p>fishes: {fishes}</p>;<button onClick={addFish}>addFish</button>
         <p>State: {"" + isConnected}</p>;
         <ul>
           {fooEvents.map((event, index) => (

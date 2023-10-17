@@ -1,21 +1,30 @@
-import { logIn, signUp, getProfile } from "@/api/auth";
+import { logIn, signUp } from "@/api/auth";
 import CatTyping from "@/modules/login/CatTyping";
+import useBoundStore from "@/store";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function SignIn() {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [isLogIn, setIsLogIn] = useState<boolean>(true);
 
+  const fetchUser = useBoundStore((state) => state.fetchUser);
+
   const handleSignIn = async () => {
     const data = { email, password, name };
     isLogIn ? await logIn(data) : await signUp(data);
+    fetchUser();
+    navigate("/");
   };
 
   const handleToggle = () => {
     setIsLogIn(!isLogIn);
   };
+
 
   return (
     <div className="w-screen h-screen bg-[url('/image/Background.webp')] bg-repeat bg-center flex">

@@ -17,7 +17,6 @@ export const publicHttpClient = axios.create({
 
 const httpClient = axios.create({
   baseURL: apiUrl,
-  withCredentials: true,
   timeout: API_FETCH_TIMEOUT * 1000,
 });
 
@@ -32,7 +31,7 @@ httpClient.interceptors.request.use(
       config.headers['Authorization'] = `Bearer ${accessToken}`;
       config.headers['Content-Type'] = contentType;
     } else config.headers['Content-Type'] = contentType;
-
+    config.headers['Access-Control-Allow-Credentials'] = 'true';
     return config;
   },
   (error) => Promise.reject(error)

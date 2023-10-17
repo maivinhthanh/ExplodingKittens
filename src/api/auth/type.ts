@@ -19,3 +19,17 @@ export interface User {
   datecreate: Date;
 }
 
+export interface JWTDecode {
+  data: Data;
+  iat:  number;
+  exp:  number;
+}
+
+export interface Data {
+  _id:     string;
+  name:    string;
+  email:   string;
+  picture: null;
+  hidden:  boolean;
+}
+
