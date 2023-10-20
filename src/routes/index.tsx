@@ -1,29 +1,35 @@
 import React from "react";
 import { RouteObject, useRoutes } from "react-router-dom";
 import SplashScreen from "@/components/SplashScreen";
-import { Home, HomePage } from "@/pages/Home";
-import { Rooms } from "@/pages/Rooms";
+import Layout from "@/pages/Layout";
 import LogIn from "@/pages/LogIn";
+import Error from "@/pages/Error";
 import { RequireAuth } from "./RequireAuth";
+import Home from "@/modules/home";
+import Rooms from "@/modules/rooms";
 
 const routes: RouteObject[] = [
   {
     path: "/",
-    element : <HomePage></HomePage>,
+    element : <Layout></Layout>,
     children : [
       {
         index: true,
         element : <Home></Home>
       },
       {
-        path: "/login",
-        element : <LogIn></LogIn>,
-      },
-      {
         path: "/rooms",
         element : <RequireAuth><Rooms /></RequireAuth>,
       }
-    ]
+    ],
+  },
+  {
+    path: "/login",
+    element : <LogIn></LogIn>,
+  },
+  {
+    path: "/*",
+    element : <Error></Error>,
   },
 ];
 

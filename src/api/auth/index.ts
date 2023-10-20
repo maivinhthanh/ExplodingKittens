@@ -1,6 +1,6 @@
 import apiRoutes from "@/api/apiRoutes";
 import httpClient , { publicHttpClient } from "@/lib/httpClient";
-import { LoginParams, ResponseLogin, User } from "./type";
+import { LoginParams, ResponseLogin, IUser } from "./type";
 import { setCookie } from "@/lib/cookies";
 import { ACCESS_TOKEN_KEY } from "@/lib/token";
 
@@ -17,6 +17,6 @@ export const signUp = async (params?: LoginParams) => {
 };
 
 export const getProfile = async () => {
-  const response = await httpClient.get<User>(apiRoutes.profile);
+  const response = await httpClient.get<IUser>(apiRoutes.profile);
   return response.data;
 };

@@ -1,10 +1,10 @@
+
+
 export default function Rooms() {
+  const listRooms = []
   return (
-    <>
-      <h1 className='text-teal-300	'>Rooms</h1>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <main className="flex justify-center">
+      
+    </main>
   )
 }
