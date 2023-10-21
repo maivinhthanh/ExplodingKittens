@@ -28,3 +28,8 @@ export const ERROR_CODES = {
     internal: '',
   },
 };
+
+export const CLASS = {
+  PREMIUM: 'PREMIUM',
+  NORMAL: 'NORMAL'
+}

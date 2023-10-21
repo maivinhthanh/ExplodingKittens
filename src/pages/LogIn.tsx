@@ -80,7 +80,7 @@ function SignIn() {
               <a className="text-white cursor-pointer" onClick={handleToggle}>
                 {isLogIn ? "Sign Up" : "Log In"}
               </a>
-              <button className="bg-black" type="button" onClick={handleSignIn}>
+              <button className="button button-primary" type="button" onClick={handleSignIn}>
                 {!isLogIn ? "Sign Up" : "Log In"}
               </button>
             </div>

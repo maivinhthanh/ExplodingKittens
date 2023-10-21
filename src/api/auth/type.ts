@@ -1,35 +1,38 @@
 export type LoginParams = {
-  email: string,
-  password: string
-}
+  email: string;
+  password: string;
+};
 
 export interface ResponseLogin {
-  accessToken:  string;
+  accessToken: string;
   refreshToken: string;
 }
 
 export interface IUser {
-  _id:        string;
-  email:      string;
-  password:   string;
-  name:       string;
-  picture:    null;
-  hidden:     boolean;
-  isonline:   boolean;
+  _id: string;
+  email: string;
+  password: string;
+  name: string;
+  picture: null;
+  hidden: boolean;
+  isonline: boolean;
+  coin: number;
+  level: number;
+  score: number;
+  class: string;
   datecreate: Date;
 }
 
 export interface JWTDecode {
   data: Data;
-  iat:  number;
-  exp:  number;
+  iat: number;
+  exp: number;
 }
 
 export interface Data {
-  _id:     string;
-  name:    string;
-  email:   string;
+  _id: string;
+  name: string;
+  email: string;
   picture: null;
-  hidden:  boolean;
+  hidden: boolean;
 }
-
