@@ -31,7 +31,7 @@ export default function Rooms() {
         {user?.class === CLASS.PREMIUM && <div>Create New Room</div>}
         <div>Quick Start</div>
       </div>
-      <div className="flex justify-center">
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-16">
         {rooms.length > 0 &&
           rooms.map((room) => {
             return <Room room={room} key={room._id}></Room>;

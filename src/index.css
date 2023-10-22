@@ -28,4 +28,10 @@
   .button-error {
     @apply bg-red-900 hover:bg-red-300 focus-visible:ring-red-500;
   }
+  .half-arc {
+    clip-path: circle(112% at 10% -19%);
+  }
+  .clip-path-lg {
+    clip-path: circle(75%);
+  }
 }
