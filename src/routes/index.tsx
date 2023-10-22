@@ -7,6 +7,8 @@ import Error from "@/pages/Error";
 import { RequireAuth } from "./RequireAuth";
 import Home from "@/modules/home";
 import Rooms from "@/modules/rooms";
+import CreateRoom from "@/modules/rooms/create-room";
+import QuickStart from "@/modules/rooms/quick-start";
 
 const routes: RouteObject[] = [
   {
@@ -20,7 +22,15 @@ const routes: RouteObject[] = [
       {
         path: "/rooms",
         element : <RequireAuth><Rooms /></RequireAuth>,
-      }
+      },
+      {
+        path: "/create-room",
+        element : <RequireAuth><CreateRoom /></RequireAuth>,
+      },
+      {
+        path: "/quick-start",
+        element : <RequireAuth><QuickStart /></RequireAuth>,
+      },
     ],
   },
   {
