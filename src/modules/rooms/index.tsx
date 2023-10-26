@@ -9,15 +9,14 @@ import CreateRoomCard from "./create-room/Card";
 import QuickStartCard from "./quick-start/Card";
 
 export default function Rooms() {
-
   const user = useBoundStore((state) => state.user);
   const [rooms, setRooms] = useState<IRoom[]>([]);
 
   const loading = useLoading();
 
   const fetch = async () => {
-    loading.toggleLoading(true);
     if (user?.class === CLASS.PREMIUM) {
+      loading.toggleLoading(true);
       const list = await getListMyRoom();
       setRooms(list);
       loading.toggleLoading(false);

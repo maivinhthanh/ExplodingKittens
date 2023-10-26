@@ -12,10 +12,14 @@ export function RequireAuth({ children }: RequireAuthProps) {
   const navigate = useNavigate();
 
   const auth = useBoundStore((state) => state.auth);
+  const setUser = useBoundStore((state) => state.setUser);
   const isUserAuthenticated = auth();
 
   React.useEffect(() => {
-    getProfile().catch(()=>{
+
+    getProfile().then((res)=>{
+      setUser(res)
+    }).catch(()=>{
       navigate("/login");
     });
   }, [])

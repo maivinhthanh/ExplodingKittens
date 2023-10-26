@@ -28,9 +28,9 @@ export default function Loading() {
               cy="50"
               r="39.891"
               stroke="#fdd032"
-              stroke-width="14.4"
+              strokeWidth="14.4"
               fill="none"
-              stroke-dasharray="0 300"
+              strokeDasharray="0 300"
             >
               <animate
                 attributeName="stroke-dasharray"
@@ -48,9 +48,9 @@ export default function Loading() {
               cy="50"
               r="39.891"
               stroke="#f7f7f7"
-              stroke-width="7.2"
+              strokeWidth="7.2"
               fill="none"
-              stroke-dasharray="0 300"
+              strokeDasharray="0 300"
             >
               <animate
                 attributeName="stroke-dasharray"
@@ -68,9 +68,9 @@ export default function Loading() {
               cy="50"
               r="32.771"
               stroke="#000000"
-              stroke-width="1"
+              strokeWidth="1"
               fill="none"
-              stroke-dasharray="0 300"
+              strokeDasharray="0 300"
             >
               <animate
                 attributeName="stroke-dasharray"
@@ -88,9 +88,9 @@ export default function Loading() {
               cy="50"
               r="47.171"
               stroke="#000000"
-              stroke-width="1"
+              strokeWidth="1"
               fill="none"
-              stroke-dasharray="0 300"
+              strokeDasharray="0 300"
             >
               <animate
                 attributeName="stroke-dasharray"

@@ -40,10 +40,10 @@ const createAuthSlice: StateCreator<AuthSliceState, [], [], AuthSliceState> = (
     const accessToken = getCookie(ACCESS_TOKEN_KEY);
     if (!accessToken) return false;
     const decoded: JWTDecode = jwt_decode(accessToken);
-    if(decoded.exp * 1000< Date.now()) {
-      return false
+    if (decoded.exp * 1000 < Date.now()) {
+      return false;
     }
-    
+
     return true;
   },
 });
