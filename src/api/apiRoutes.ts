@@ -8,6 +8,9 @@ const routes = {
   rooms: {
     create: '/rooms/create',
     detail: '/rooms'
+  },
+  cards: {
+    list: '/cards'
   }
 };
 

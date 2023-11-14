@@ -13,3 +13,10 @@ export interface RoomResponse {
   room: IRoom;
   listCardDetail?: ICard[];
 }
+
+export interface ParamCreateNewRoom {
+  members: IUser[];
+  cards: string[];
+  type: string;
+  name: string;
+}

@@ -1,20 +1,19 @@
 import { IUser } from "@/api/auth/type";
 import CompoboxSearch from "./CompoboxSearch";
-import { useState } from "react";
+import { useRoom } from "./RoomProvider";
 
 export default function AddMember() {
-  const [members, setMembers] = useState<IUser[]>([]);
+  const { members, addMember, removeMember } = useRoom();
 
   const handleChange = (person: IUser) => {
     if (members.some((e) => e._id === person._id)) {
       return;
     }
-    setMembers([...members, person]);
+    addMember(person);
   };
 
   const handleRemove = (person: IUser) => {
-    const list = members.filter((e) => e._id !== person._id);
-    setMembers(list);
+    removeMember(person._id);
   };
 
   return (

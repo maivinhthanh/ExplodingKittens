@@ -1,5 +1,5 @@
 import httpClient from "@/lib/httpClient";
-import { IRoom, RoomResponse } from "./type";
+import { IRoom, ParamCreateNewRoom, RoomResponse } from "./type";
 import apiRoutes from "../apiRoutes";
 
 export const getDetailRoom = async () => {
@@ -12,7 +12,7 @@ export const getListMyRoom = async () => {
   return response.data;
 };
 
-export const createNewRoom = async () => {
-  const response = await httpClient.post<IRoom>(apiRoutes.rooms.create);
+export const createNewRoom = async (param: ParamCreateNewRoom) => {
+  const response = await httpClient.post<IRoom>(apiRoutes.rooms.create, param);
   return response.data;
 };
