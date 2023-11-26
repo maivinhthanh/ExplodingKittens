@@ -11,6 +11,10 @@ const routes = {
   },
   cards: {
     list: '/cards'
+  },
+  games: {
+    create: '/games/create',
+    detail: '/rooms'
   }
 };
 

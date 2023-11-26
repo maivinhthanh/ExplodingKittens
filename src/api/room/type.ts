@@ -2,7 +2,7 @@ import { IUser } from "../auth/type";
 
 export interface IUserRoom extends IUser {
   isOnline: boolean;
-  isDie: boolean;
+  isAlive: boolean;
 }
 
 export interface IRoom {

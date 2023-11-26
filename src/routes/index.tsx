@@ -10,42 +10,66 @@ import Rooms from "@/modules/rooms";
 import CreateRoom from "@/modules/rooms/create-room";
 import QuickStart from "@/modules/rooms/quick-start";
 import RoomDetail from "@/modules/room";
+import GameDetail from "@/modules/game";
 
 const routes: RouteObject[] = [
   {
     path: "/",
-    element : <Layout></Layout>,
-    children : [
+    element: <Layout></Layout>,
+    children: [
       {
         index: true,
-        element : <Home></Home>
+        element: <Home></Home>,
       },
       {
         path: "/rooms",
-        element : <RequireAuth><Rooms /></RequireAuth>,
+        element: (
+          <RequireAuth>
+            <Rooms />
+          </RequireAuth>
+        ),
       },
       {
         path: "/create-room",
-        element : <RequireAuth><CreateRoom /></RequireAuth>,
+        element: (
+          <RequireAuth>
+            <CreateRoom />
+          </RequireAuth>
+        ),
       },
       {
         path: "/quick-start",
-        element : <RequireAuth><QuickStart /></RequireAuth>,
+        element: (
+          <RequireAuth>
+            <QuickStart />
+          </RequireAuth>
+        ),
       },
       {
         path: "/room/:roomid",
-        element : <RequireAuth><RoomDetail /></RequireAuth>,
+        element: (
+          <RequireAuth>
+            <RoomDetail />
+          </RequireAuth>
+        ),
       },
-      
+      {
+        path: "/game/:gameid",
+        element: (
+          <RequireAuth>
+            <GameDetail />
+          </RequireAuth>
+        ),
+      },
     ],
   },
   {
     path: "/login",
-    element : <LogIn></LogIn>,
+    element: <LogIn></LogIn>,
   },
   {
     path: "/*",
-    element : <Error></Error>,
+    element: <Error></Error>,
   },
 ];
 
