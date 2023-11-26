@@ -1,17 +1,24 @@
 import { IRoom } from "@/api/room/type";
+import { useNavigate } from "react-router-dom";
 
 interface RoomProps {
   room: IRoom;
 }
 
 export default function Room(data: RoomProps) {
+  const navigate = useNavigate();
+
+  const handleClick = (id: string) => {
+    navigate("/room/" + id);
+  }
+
   return (
     <div className="h-40 w-72">
       <div className="h-full w-full rounded-xl bg-blue-300 hover:bg-blue-200 shadow-lg hover:animate-wiggle hover:animate-infinite hover:animate-ease-linear">
         <div className="p-4 flex flex-col h-full half-arc bg-gradient-to-tr from-blue-300 to-blue-500 hover:clip-path-lg ease-in duration-300 rounded-xl">
           <div className="grow text-xl font-bold">{data.room.name}</div>
           <div className="flex">
-            <button className="grow button button-primary">Tham gia</button>
+            <button className="grow button button-primary" onClick={()=>handleClick(data.room._id)}>Tham gia</button>
             <button className="flex-none ml-12">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

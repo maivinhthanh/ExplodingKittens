@@ -9,6 +9,7 @@ import Home from "@/modules/home";
 import Rooms from "@/modules/rooms";
 import CreateRoom from "@/modules/rooms/create-room";
 import QuickStart from "@/modules/rooms/quick-start";
+import RoomDetail from "@/modules/room";
 
 const routes: RouteObject[] = [
   {
@@ -31,6 +32,11 @@ const routes: RouteObject[] = [
         path: "/quick-start",
         element : <RequireAuth><QuickStart /></RequireAuth>,
       },
+      {
+        path: "/room/:roomid",
+        element : <RequireAuth><RoomDetail /></RequireAuth>,
+      },
+      
     ],
   },
   {

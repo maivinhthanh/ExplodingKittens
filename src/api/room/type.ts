@@ -1,9 +1,13 @@
 import { IUser } from "../auth/type";
-import { ICard } from "../card/type";
+
+export interface IUserRoom extends IUser {
+  isOnline: boolean;
+  isDie: boolean;
+}
 
 export interface IRoom {
   _id: string;
-  members: IUser[];
+  members: IUserRoom[];
   cards?: string[];
   type: string;
   name?: string;
@@ -11,7 +15,6 @@ export interface IRoom {
 
 export interface RoomResponse {
   room: IRoom;
-  listCardDetail?: ICard[];
 }
 
 export interface ParamCreateNewRoom {
