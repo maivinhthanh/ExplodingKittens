@@ -1,24 +1,31 @@
-import { getDetailGame } from "@/api/game";
-import { useLoading } from "@/components/Loading/LoadingProvider";
 import useBoundStore from "@/store";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Seats from "./seats";
+import Table from "./table";
+import Cards from "./cards";
 
 export default function GameDetail() {
-  const user = useBoundStore((state) => state.user);
   let { gameid } = useParams();
-
-  const loading = useLoading();
-
-  const fetch = async () => {
-    loading.toggleLoading(true);
-    const list = await getDetailGame(gameid || '');
-    loading.toggleLoading(false);
-  };
+  const fetchGame = useBoundStore((state) => state.fetchGame);
 
   useEffect(() => {
-    fetch();
+    fetchGame(gameid || "");
   }, []);
 
-  return <main></main>;
+  return (
+    <main className="flex">
+      <div className="grow flex flex-col">
+        <div className="">
+          <Seats />
+        </div>
+        <div className="">
+          <Table />
+        </div>
+      </div>
+      <div className="flex-none">
+        <Cards />
+      </div>
+    </main>
+  );
 }

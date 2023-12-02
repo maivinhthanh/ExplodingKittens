@@ -1,5 +1,8 @@
 import { createNewGame } from "@/api/game";
-import { MemberGame, ParamCreateNewGame } from "@/api/game/type";
+import {
+  MemberGameParam,
+  ParamCreateNewGame,
+} from "@/api/game/type";
 import { getDetailRoom } from "@/api/room";
 import { IUserRoom } from "@/api/room/type";
 import Paw from "@/assets/icons/Paw";
@@ -19,7 +22,7 @@ export default function RoomDetail() {
 
   const getRoom = async () => {
     if (!roomid) return;
-    const data = (await getDetailRoom(roomid)).room.members;
+    const data = (await getDetailRoom(roomid)).members;
     setMember(data);
   };
 
@@ -63,13 +66,13 @@ export default function RoomDetail() {
   };
 
   const startGame = async () => {
-    const listIdMember: Array<MemberGame> = members.map((mem) => {
+    const listIdMember: Array<MemberGameParam> = members.map((mem) => {
       return {
         memberid: mem._id,
         isAlive: mem.isOnline ? mem.isAlive : false,
         isOnline: mem.isOnline,
         cards: ["DEFUSE"],
-      } as MemberGame;
+      } as MemberGameParam;
     });
     const param: ParamCreateNewGame = {
       members: listIdMember,

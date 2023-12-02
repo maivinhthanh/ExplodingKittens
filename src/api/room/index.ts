@@ -1,9 +1,9 @@
 import httpClient from "@/lib/httpClient";
-import { IRoom, ParamCreateNewRoom, RoomResponse } from "./type";
+import { IRoom, ParamCreateNewRoom, RoomMember } from "./type";
 import apiRoutes from "../apiRoutes";
 
 export const getDetailRoom = async (id: string) => {
-  const response = await httpClient.get<RoomResponse>(apiRoutes.rooms.detail + `/${id}/member`);
+  const response = await httpClient.get<RoomMember>(apiRoutes.rooms.detail + `/${id}/member`);
   return response.data;
 };
 

@@ -17,6 +17,11 @@ export interface RoomResponse {
   room: IRoom;
 }
 
+export interface RoomMember {
+  _id: string;
+  members: IUserRoom[];
+}
+
 export interface ParamCreateNewRoom {
   members: IUser[];
   cards: string[];

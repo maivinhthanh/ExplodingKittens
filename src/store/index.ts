@@ -1,28 +1,14 @@
-import { create, StateCreator } from "zustand";
+import { create } from "zustand";
 import createAuthSlice, { AuthSliceState } from "./authSlice";
 import { devtools, persist } from "zustand/middleware";
+import createGameSlice, { GameSliceState } from "./gameSlice";
 
-interface FishSlice {
-  fishes: number;
-  addFish: () => void;
-}
-
-const createFishSlice: StateCreator<
-  AuthSliceState & FishSlice,
-  [],
-  [],
-  FishSlice
-> = (set) => ({
-  fishes: 0,
-  addFish: () => set((state) => ({ fishes: state.fishes + 1 })),
-});
-
-const useBoundStore = create<AuthSliceState & FishSlice>()(
+const useBoundStore = create<AuthSliceState & GameSliceState>()(
   devtools(
     persist(
       (...a) => ({
         ...createAuthSlice(...a),
-        ...createFishSlice(...a),
+        ...createGameSlice(...a),
       }),
       { name: "store" }
     )

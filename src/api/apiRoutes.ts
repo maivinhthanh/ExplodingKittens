@@ -14,7 +14,7 @@ const routes = {
   },
   games: {
     create: '/games/create',
-    detail: '/rooms'
+    detail: '/games'
   }
 };
 
